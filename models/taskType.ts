@@ -23,4 +23,6 @@ const taskTypeSchema = new Schema({
     }
 })
 
-export { taskTypeSchema }
+const TaskType = mongoose.model("TaskType", taskTypeSchema)
+
+export { taskTypeSchema, TaskType }
