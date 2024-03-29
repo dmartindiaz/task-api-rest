@@ -50,7 +50,12 @@ class UserController {
         if(name == undefined || lastname == undefined || email == undefined || password == undefined){
             Responses.send(res, "Fields are missing", null, true)
         }else{
-            User.findOneAndUpdate({id}, {name, lastname, email, password})
+            const findUser = await User.findOneAndUpdate({id}, {name, lastname, email, password}).exec()
+            if(findUser){
+                Responses.send(res, "User updated", findUser, false)
+            }else{
+                Responses.send(res, "User not updated", findUser, true)
+            }
         }
     }
 }
