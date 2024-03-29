@@ -1,5 +1,6 @@
+import {Responses} from "../utils/senders"
 class Validate {
-    static request(object: object, fn: Function): Boolean {
+    static request(res: any, object: object, fn: Function): Boolean {
         let validate = true
         const objectToKeys = Object.values(object)
         objectToKeys.forEach((value) => {
@@ -9,6 +10,8 @@ class Validate {
         })
         if(validate){
             fn()
+        }else{
+            Responses.send(res, "Fields are missing", null, true)
         }
         return validate
     }
