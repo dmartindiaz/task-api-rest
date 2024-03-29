@@ -4,14 +4,14 @@ const { Schema } = mongoose;
 const groupSchema = new Schema({
     title: {
         type: String,
-        required: true
+        require: true
     },
     description: {
         type: String
     },
     members: {
         type: Array<String>,
-        required: true
+        require: true
     },
     tasks: {
         type: Array<String>,

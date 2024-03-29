@@ -4,11 +4,11 @@ const { Schema } = mongoose;
 const taskSchema = new Schema({
     title: {
         type: String,
-        required: true
+        require: true
     },
     description: {
         type: String,
-        required: true
+        require: true
     },
     created: {
         type: Date,
@@ -20,19 +20,16 @@ const taskSchema = new Schema({
     },
     createdBy: {
         type: String,
-        required: true
+        require: true
     },
     taskType: {
         type: String,
-        required: true,
+        require: true,
     },
     taskTypePlace: {
         type: String,
-        required: true,
+        require: true,
     }
-}, {
-    strict: true
 })
 
-const Task = mongoose.model("Task", taskSchema)
-export { taskSchema, Task }
+export { taskSchema }
