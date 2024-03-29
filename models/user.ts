@@ -2,17 +2,22 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const user = new Schema({
-    user: {
+    name: {
         type: String,
-        require: true
+        required: true
+    },
+    lastname: {
+        type: String,
+        required: true
     },
     email: {
         type: String,
-        require: true
+        unique: true,
+        required: true,
     },
     password: {
         type: String,
-        require: true
+        required: true
     },
     created: {
         type: Date,
@@ -27,6 +32,10 @@ const user = new Schema({
     groups: {
         type: Array<String>
     }
+}, {
+    strict: true
 })
 
-export { user }
+const User = mongoose.model("User", user)
+
+export { user, User }

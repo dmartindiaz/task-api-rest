@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const taskTypeSchema = new Schema({
     title: {
         type: String,
-        require: true
+        required: true
     },
     description: {
         type: String,
@@ -15,7 +15,7 @@ const taskTypeSchema = new Schema({
     },
     createdBy: {
         type: String,
-        require: true
+        required: true
     },
     steps: {
         type: Array,
